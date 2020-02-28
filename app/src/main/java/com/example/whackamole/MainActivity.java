@@ -2,6 +2,7 @@ package com.example.whackamole;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import androidx.gridlayout.widget.GridLayout;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     public Button button;
     private TextView pointsLabel;
     private int points;
+    private int image;
 
 
     @Override
@@ -56,20 +58,40 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void imagePressed(View v){
+        Intent i = new Intent (this, PickImageActivity.class);
+        i.putExtra("IMAGE", image);
+        startActivityForResult(i, 1);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        //getIntExtra - you have to specify what you are getting  int, double, string
+        int image = data.getIntExtra("IMAGE", 1);
+
+        if(image==1){
+            imageViews[moleLocation].setImageDrawable(moleImage);
+
+        }else if(image == 2){
+
+        }else{
+
+        }
+
+    }
+
+
 
     public void buttonPressed(View v){
         if(on){
             on = false;
             handler.removeCallbacks(updateLocation);
 
-
         }else {
             on = true;
 
             handler.postDelayed(updateLocation, 1000);
         }
-
-
     }
 
    public void move(View v) {
@@ -77,9 +99,7 @@ public class MainActivity extends AppCompatActivity {
         if(v==imageViews[moleLocation] ){
             points++;
             pointsLabel.setText(points+"");
-
           }
-
     }
 
 
@@ -92,7 +112,5 @@ public class MainActivity extends AppCompatActivity {
                 imageViews[moleLocation].setImageDrawable(moleImage);
                 handler.postDelayed(updateLocation, 1000);
         }
-
-
     }
 }
