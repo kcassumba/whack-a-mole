@@ -24,10 +24,10 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="103dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="118dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:onClick="buttonPressed"
         android:text="Start"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,8 +37,8 @@
         android:id="@+id/textView"
         android:layout_width="96dp"
         android:layout_height="49dp"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Count:"
         android:textColor="@color/colorAccent"
@@ -50,8 +50,8 @@
         android:id="@+id/pointsLabel"
         android:layout_width="72dp"
         android:layout_height="58dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="120dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="108dp"
         android:textColor="@color/colorAccent"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,8 +78,20 @@
         android:layout_width="141dp"
         android:layout_height="54dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="76dp"
+        android:layout_marginEnd="132dp"
+        android:onClick="imagePressed"
         android:text="Change Image "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pointsLabel" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="113dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="helpPressed"
+        android:text="Help"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pointsLabel" />
 </androidx.constraintlayout.widget.ConstraintLayout>

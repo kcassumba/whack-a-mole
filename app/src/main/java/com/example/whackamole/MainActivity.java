@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView pointsLabel;
     private int points;
     private int image;
+    private String help_text;
 
 
     @Override
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         updateLocation = new updateLocation();
         pointsLabel = findViewById(R.id.pointsLabel);
         points =0;
+
 
         for(int i=0; i<16; i++){
             imageViews[i] = (ImageView) getLayoutInflater().inflate(R.layout.mole_view,null);
@@ -73,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         //getIntExtra - you have to specify what you are getting  int, double, string
         int image = data.getIntExtra("IMAGE", 1);
 
+      /* Moved to UpdateLocation
         if(image==1){
             imageViews[moleLocation].setImageDrawable(moleImage);
 
@@ -80,11 +83,20 @@ public class MainActivity extends AppCompatActivity {
             imageViews[moleLocation].setImageDrawable(moleImage2);
         }else{
             imageViews[moleLocation].setImageDrawable(moleImage3);
-        }
+        }*/
 
     }
 
+    public void helpPressed(View v){
+        Intent i = new Intent (this, HelpScreenActivity.class);
+        i.putExtra("HELP", help_text);
+        startActivityForResult(i, 1);
+    }
 
+
+    public void onActivityResult(Intent data, String help_text){
+         help_text =  data.getStringExtra(help_text);
+    }
 
     public void buttonPressed(View v){
         if(on){
@@ -111,10 +123,22 @@ public class MainActivity extends AppCompatActivity {
 
         public void run(){
 
-                imageViews[moleLocation].setImageDrawable(null);
-                moleLocation = rand.nextInt(16);
+            imageViews[moleLocation].setImageDrawable(null);
+            moleLocation = rand.nextInt(16);
+           // imageViews[moleLocation].setImageDrawable(moleImage);
+
+            //Sets mole image directly to moleImage3, but i don't understand why
+            if(image==1){
                 imageViews[moleLocation].setImageDrawable(moleImage);
-                handler.postDelayed(updateLocation, 1000);
+
+            }else if(image == 2){
+                imageViews[moleLocation].setImageDrawable(moleImage2);
+            }else{
+                imageViews[moleLocation].setImageDrawable(moleImage3);
+            }
+
+
+            handler.postDelayed(updateLocation, 1000);
         }
     }
 }

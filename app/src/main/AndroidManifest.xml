@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name= ".PickImageActivity"></activity>
+        <activity android:name= ".HelpScreenActivity"></activity>
     </application>
 
 </manifest>

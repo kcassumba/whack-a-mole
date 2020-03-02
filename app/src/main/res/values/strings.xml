@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Whackamole</string>
+    <string name="help_screen">
+        This is how you play whack-a-mole. Click on the image of the mole as fast as you can and
+        gather some points as you go. Have fun!
+    </string>
 </resources>
