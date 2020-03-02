@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     private GridLayout grid;
     private Drawable moleImage;
+    private Drawable moleImage2;
+    private Drawable moleImage3;
     private ImageView[] imageViews;
     private int moleLocation;
     private Random rand;
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         grid = findViewById(R.id.gridLayout);
         moleImage = getDrawable(R.drawable.mole);
+        moleImage2 = getDrawable(R.drawable.mole21);
+        moleImage3 = getDrawable(R.drawable.mole3);
         imageViews = new ImageView[16];
         rand = new Random();
         handler = new Handler();
@@ -73,9 +77,9 @@ public class MainActivity extends AppCompatActivity {
             imageViews[moleLocation].setImageDrawable(moleImage);
 
         }else if(image == 2){
-
+            imageViews[moleLocation].setImageDrawable(moleImage2);
         }else{
-
+            imageViews[moleLocation].setImageDrawable(moleImage3);
         }
 
     }
